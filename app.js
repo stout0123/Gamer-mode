@@ -1,40 +1,32 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const clickableArea = document.getElementById("clickable-area");
-    const message = document.getElementById("message");
-    const toggleButton = document.getElementById("toggle-button");
+document.addEventListener('DOMContentLoaded', function() {
+    const _0xabc1 = document.getElementById('clickable-area');
+    const _0xdef2 = document.getElementById('toggle-button');
+    
+    let _0x1234 = false;
+    let _0x5678;
 
-    let isRunning = false; // Auto clicker is initially off
-    let clickTimeout;
+    function _0x9abc() {
+        if (!_0x1234) return;
 
-    function randomClick() {
-        if (!isRunning) return; // Do nothing if the auto-clicker is off
+        const _0x4567 = Math.floor(Math.random() * 10) + 1;
 
-        const delay = Math.floor(Math.random() * 10) + 1;
-        message.textContent = `Next click in ${delay} second(s)...`;
-
-        clickTimeout = setTimeout(() => {
-            clickableArea.click();
-        }, delay * 1000);
+        _0x5678 = setTimeout(() => {
+            _0xabc1.click();
+            _0x9abc();
+        }, _0x4567 * 1000);
     }
 
-    clickableArea.addEventListener("click", function() {
-        if (!isRunning) return;
-        message.textContent = "Clicked!";
-        randomClick(); // Schedule the next random click
-    });
+    _0xdef2.addEventListener('click', function() {
+        _0x1234 = !_0x1234;
 
-    toggleButton.addEventListener("click", function() {
-        isRunning = !isRunning;
-
-        if (isRunning) {
-            toggleButton.textContent = "Stop Auto Clicker";
-            toggleButton.classList.remove("off");
-            randomClick(); // Start auto-clicking
+        if (_0x1234) {
+            _0xdef2.textContent = 'Stop Auto Clicker';
+            _0xdef2.classList.remove('off');
+            _0x9abc();
         } else {
-            toggleButton.textContent = "Start Auto Clicker";
-            toggleButton.classList.add("off");
-            clearTimeout(clickTimeout); // Stop any pending clicks
-            message.textContent = "Auto Clicker Stopped";
+            _0xdef2.textContent = 'Start Auto Clicker';
+            _0xdef2.classList.add('off');
+            clearTimeout(_0x5678);
         }
     });
 });
